@@ -43,12 +43,12 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className={`group text-xl md:text-2xl font-serif font-bold flex items-center gap-3 ${logoTextClass}`}>
           <div className="relative">
-            <img src="/waeldent.jpg" alt="Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110" onError={(e) => e.target.style.display = 'none'} />
+            <img src={`${import.meta.env.BASE_URL}tasnim-dent.jpg`} alt="Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110" onError={(e) => e.target.style.display = 'none'} />
             <div className="absolute -inset-2 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-xl md:text-2xl">Cabinet Dentaire</span>
-            <span className="text-sm md:text-lg opacity-80 font-sans font-medium">Dr. Wael Azaza</span>
+            <span className="text-sm md:text-lg opacity-80 font-sans font-medium">Dr. Tesnim Blel</span>
           </div>
         </Link>
 

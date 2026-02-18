@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calendar, Star, Clock, ShieldCheck, ArrowRight, HeartPulse, Stethoscope, Sparkles, Activity, Award, UserCheck } from 'lucide-react';
+import heroBg from '../assets/dent-background.jpg';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -18,8 +19,9 @@ const fadeInUp = {
 
 const Home = () => {
     const { scrollY } = useScroll();
-    const heroY = useTransform(scrollY, [0, 500], [0, 150]);
-    const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+    const heroY = useTransform(scrollY, [0, 500], [0, 100]);
+    const bgY = useTransform(scrollY, [0, 500], [0, 50]); // Parallax for background
+    const heroOpacity = useTransform(scrollY, [0, 800], [1, 0.2]);
 
     // Parallax for the features section
     const ref = useRef(null);
@@ -30,25 +32,39 @@ const Home = () => {
         <div className="w-full overflow-hidden bg-slate-50 selection:bg-primary/30">
 
             {/* HERO SECTION */}
-            <section className="relative min-h-[110vh] flex items-center pt-20 overflow-hidden bg-secondary animate-move-bg bg-gradient-to-br from-slate-900 via-secondary to-slate-900">
-                {/* Vivid Animated Background Blobs */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary-glow/30 rounded-full mix-blend-screen filter blur-[120px] animate-blob" />
-                    <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-purple/30 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
-                    <div className="absolute -bottom-32 left-1/3 w-[600px] h-[600px] bg-accent-pink/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000" />
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise.png')] opacity-[0.03] mix-blend-overlay" />
+            <section className="relative min-h-screen flex items-center pt-32 pb-12 overflow-hidden">
+                {/* Background Image & Overlay with Parallax */}
+                <motion.div
+                    style={{ y: bgY }}
+                    className="absolute inset-0 z-0"
+                >
+                    <motion.img
+                        src={heroBg}
+                        alt="Hero Background"
+                        className="w-full h-full object-cover"
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: [1.1, 1.15, 1.1] }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    />
+                    <div className="absolute inset-0 bg-slate-900/30" /> {/* Dark overlay for readability */}
 
-                    {/* Floating Decorative Icons */}
-                    <motion.div className="absolute top-[20%] left-[10%] text-primary-glow/20 animate-float" style={{ animationDelay: '5s' }}>
-                        <Sparkles size={80} />
-                    </motion.div>
-                    <motion.div className="absolute bottom-[20%] right-[10%] text-accent-purple/20 animate-float" style={{ animationDelay: '10s' }}>
-                        <HeartPulse size={100} />
-                    </motion.div>
-                    <motion.div className="absolute top-[40%] right-[20%] text-white/10 animate-float" style={{ animationDelay: '10s' }}>
-                        <Activity size={120} />
-                    </motion.div>
-                </div>
+                    {/* Floating Particles */}
+                    <motion.div
+                        animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full blur-[1px]"
+                    />
+                    <motion.div
+                        animate={{ y: [0, 30, 0], opacity: [0.2, 0.5, 0.2] }}
+                        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-primary/40 rounded-full blur-[2px]"
+                    />
+                    <motion.div
+                        animate={{ y: [0, -40, 0], opacity: [0.1, 0.4, 0.1] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                        className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent-gold/60 rounded-full"
+                    />
+                </motion.div>
 
                 <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center pb-20">
                     {/* Text Content */}
@@ -56,16 +72,13 @@ const Home = () => {
                         style={{ y: heroY, opacity: heroOpacity }}
                         className="space-y-8 relative"
                     >
-
-                        <br></br>
                         <motion.h1
                             variants={fadeInUp}
                             initial="hidden"
                             animate="visible"
                             custom={1}
-                            className="text-5xl lg:text-7xl font-serif font-medium text-white leading-[1.05] tracking-tight"
+                            className="text-4xl sm:text-5xl lg:text-7xl font-serif font-medium text-white leading-[1.1] tracking-tight"
                         >
-                            <br></br>
                             Souriez avec une <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-white to-indigo-300 animate-shimmer bg-[length:200%_auto]">Confiance Totale</span>
                         </motion.h1>
@@ -87,16 +100,16 @@ const Home = () => {
                             custom={3}
                             className="flex flex-wrap gap-5 pt-4"
                         >
-                            <a href="/contact" className="group relative px-10 py-5 bg-gradient-to-r from-primary to-accent-purple text-white rounded-full font-bold text-lg overflow-hidden shadow-2xl shadow-primary/40 transition-all hover:scale-105 hover:shadow-primary/60">
+                            <Link to="/contact" className="group relative px-10 py-5 bg-gradient-to-r from-primary to-accent-purple text-white rounded-full font-bold text-lg overflow-hidden shadow-2xl shadow-primary/40 transition-all hover:scale-105 hover:shadow-primary/60">
                                 <div className="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500 ease-out skew-x-12 -ml-4" />
                                 <span className="relative z-10 flex items-center gap-2">
                                     Prendre RDV <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
-                            </a>
-                            <a href="/services" className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-sm flex items-center gap-2">
+                            </Link>
+                            <Link to="/services" className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-sm flex items-center gap-2">
                                 <Calendar size={20} className="text-primary-glow" />
                                 Nos Services
-                            </a>
+                            </Link>
                         </motion.div>
 
                         {/* Stats Strip */}
@@ -110,7 +123,7 @@ const Home = () => {
 
                             {[
                                 { val: "500+", label: "Sourires Créés", color: "text-primary-glow" },
-                                { val: "3  ans +", label: "Expérience", color: "text-white" },
+                                { val: "5  ans +", label: "Expérience", color: "text-white" },
                                 { val: "5.0", label: "Évaluation", color: "text-accent-gold" },
                             ].map((stat, i) => (
                                 <div key={i} className="">
@@ -136,16 +149,20 @@ const Home = () => {
                             <img
                                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3"
                                 alt="Professional Dentist"
-                                className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
+                                className="w-full h-full object-cover opacity-75 transition-transform duration-1000 group-hover:scale-110"
                             />
                             {/* Colorful Overlay Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent opacity-80" />
 
                             {/* Floating "Live" Badge */}
-                            <div className="absolute top-8 left-8 px-5 py-3 bg-secondary/60 backdrop-blur-md border border-white/10 rounded-2xl flex items-center gap-3 shadow-xl">
+                            <motion.div
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute top-8 left-8 px-5 py-3 bg-secondary/60 backdrop-blur-md border border-white/10 rounded-2xl flex items-center gap-3 shadow-xl"
+                            >
                                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
-                                <span className="text-white text-sm font-semibold tracking-wide">Ouvert jusqu'à 17:30h Sauf Samedi jusqu'à 15:30h</span>
-                            </div>
+                                <span className="text-white text-sm font-semibold tracking-wide">Ouvert jusqu'à 18:30h Sauf Samedi jusqu'à 15:00h</span>
+                            </motion.div>
                         </motion.div>
 
                         {/* Floating Feature Card 1 */}
@@ -284,7 +301,7 @@ const Home = () => {
 
                         <h2 className="text-5xl md:text-7xl font-serif text-white mb-8">Votre plus beau sourire vous attend</h2>
                         <p className="text-xl text-primary-light mb-12 font-light max-w-2xl mx-auto">
-                            Ne vous contentez pas de la moyenne. Rejoignez les milliers de patients qui ont transformé leur vie avec le Dr. Wael Azaza.
+                            Ne vous contentez pas de la moyenne. Rejoignez les milliers de patients qui ont transformé leur vie avec le Dr. Tesnim Blel.
                         </p>
                         <Link to="/contact" className="inline-block px-12 py-5 bg-white text-secondary font-bold rounded-full shadow-2xl shadow-white/20 hover:scale-105 transition-all text-lg">
                             Prendre RDV

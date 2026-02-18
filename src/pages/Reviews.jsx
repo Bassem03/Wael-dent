@@ -4,7 +4,7 @@ import { Star, MessageCircle, Quote } from 'lucide-react';
 
 const Reviews = () => {
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 pb-12 relative">
+        <div className="bg-slate-50 min-h-screen pt-32 pb-12 relative">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-1/3 h-[500px] bg-gradient-to-b from-primary/5 to-transparent skew-x-12 pointer-events-none" />
 
@@ -45,7 +45,7 @@ const Reviews = () => {
                         <div className="flex items-center gap-6">
                             <div className="w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white font-bold text-3xl shadow-lg shadow-blue-500/30">G</div>
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-800">Cabinet Dentaire Dr. Wael Azaza - Sousse</h2>
+                                <h2 className="text-2xl font-bold text-slate-800">Cabinet Dentaire Dr. Tesnim Blel - Sousse</h2>
                                 <div className="flex items-center gap-2 mt-1">
                                     <span className="text-slate-900 font-black text-2xl">4.9</span>
                                     <div className="flex text-amber-400 gap-0.5">
@@ -65,12 +65,12 @@ const Reviews = () => {
                 {/* Masonry Mock Reviews Grid */}
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                     {[
-                        { name: "Khaled Zbidi.", date: "il y a plus d'un mois", text: "Un très bon service, le médecin est très à l'écoute, il explique chaque détail et il travaille très doucement. Le cabinet est propre, moderne et accueuillant. Je recommende vivement", bg: "bg-white" },
-                        { name: "Anis HAMDI", date: "il y a plus de 3 mois", text: "Un grand merci au Dr Wael pour son sérieux et sa technicité. Rare de trouver un dentiste avec autant de talent et de passion pour son métier !", bg: "bg-primary text-white", dark: true },
-                        { name: "HICHEM EL MUFTI", date: "il y a plus de 2 mois", text: "Le meilleur", bg: "bg-white" },
-                        { name: "mohamed rebai", date: "il y a une Semaine", text: "Un très bon service, professionnalisme et propreté…", bg: "bg-white" },
-                        { name: "Rym G.", date: "il y a 2 mois", text: "Un rendez-vous d'urgence a été traité avec beaucoup de soin. Merci au Dr Azaza d'avoir sauvé ma dent !", bg: "bg-white" },
-                        { name: "Sami K.", date: "il y a 3 mois", text: "Excellent pour les enfants aussi ! Ma fille a hâte d'aller à ses contrôles maintenant.", bg: "bg-secondary text-white", dark: true },
+                        { name: "safa zakhama.", date: "il y a plus d'un an", text: "Une Dentiste hors normes, toute douce méticuleuse, soigneuse... Le confort du patient est son premier soucis... Elle prend son temps pour bien expliquer les choses... Je ne peux que la recommander vivement! La première fois je l'ai consulté pour une urgence dentaire. La dent à traiter m'a fait souffrir de nombreuses années de dentiste à dentiste entre la France et la Tunisie, je vous jure qu'elle était la seule dentiste à avoir traité cette dent avec cette perfection. Merci beaucoup docteur et bonne continuation !", bg: "bg-white" },
+                        { name: "Fatimetou Eyloul", date: "il y a plus d'un an", text: "Je viens de Mauritanie, je partage avec vous mon expérience avec le Dr Tesnim blel Elle était vraiment, comme j'ai entendu parler d'elle, humble et gentille, et elle vous a expliqué en détail et vous a montré les solutions disponibles. Je le recommande comme l'un des meilleurs médecins Merçi Dr.tesmin blel", bg: "bg-primary text-white", dark: true },
+                        { name: "Asma Blel", date: "il y a plus de 4 ans", text: "Dentiste dévouée, qui prend son temps avec les patients et veille à leur assurer les meilleurs soins avec le plus de confort possible. Bravo pour ton honnêteté et ta minutie ! Vous serez sûrement entre de bonnes mains avec elle..", bg: "bg-white" },
+                        { name: "Abdelmonam Azaiez", date: "il y a plus de 3 ans", text: "Meilleur dentiste ! Accueil chaleureux, Compétence magnifique Méticuleuse, minutieuse et très sympa! Les dentistes comme elle sont trop rare", bg: "bg-white" },
+                        { name: "Laila Khammassi", date: "il y a plus q'une Semaine", text: "Excellent cabinet dentaire ! L’équipe est très professionnelle, accueillante et à l’écoute. Dr Rihab prend le temps d’expliquer chaque étape et met rapidement en confiance. Le cabinet est propre, moderne et bien organisé. Je recommande vivement pour la qualité des soins et le sérieux du travail.", bg: "bg-white" },
+                        { name: "mohammed lakhdar khezzane", date: "il y a plus d'un an", text: "Une dentiste d'une gentillesse exceptionnelle, passionnée par son travail et très patiente. Avenante et d'une grande intégrité. Son assistante est une enfant adorable et très serviable. Je la recommande vivement ; vous ne le regretterez pas.", bg: "bg-secondary text-white", dark: true },
                     ].map((review, i) => (
                         <motion.div
                             key={i}

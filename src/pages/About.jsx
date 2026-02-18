@@ -4,7 +4,7 @@ import { User, CheckCircle, Award, Heart, Shield } from 'lucide-react';
 
 const About = () => {
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 pb-12 overflow-hidden relative">
+        <div className="bg-slate-50 min-h-screen pt-32 pb-12 relative">
             {/* Subtle Warm Mesh Gradient */}
             <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-accent-gold/5 via-primary-light/10 to-transparent pointer-events-none" />
             <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-accent-gold/10 rounded-full blur-[100px] pointer-events-none" />
@@ -42,7 +42,7 @@ const About = () => {
                 <div className="grid md:grid-cols-3 gap-8 mb-24">
                     {[
                         {
-                            name: "Dr. Wael Azaza",
+                            name: "Dr. Tesnim Blel",
                             role: "Chirurgien Dentiste",
                             bio: "Expert en dentisterie esthétique avec plus de 15 ans d'expérience dans la transformation des sourires.",
                             gradient: "from-rose-500 to-orange-400",

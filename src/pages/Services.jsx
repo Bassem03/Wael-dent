@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Gem, ClipboardCheck, Sparkles, Smile, Brush, Microscope, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 pb-12 relative overflow-hidden">
+        <div className="bg-slate-50 min-h-screen pt-32 pb-12 relative">
             {/* Tech Background Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
             <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
@@ -113,9 +114,9 @@ const Services = () => {
                         <p className="text-slate-300 font-light text-lg">
                             Chaque sourire est unique. Planifiez une consultation et nos experts créeront un parcours personnalisé pour votre sourire parfait.
                         </p>
-                        <a href="/contact" className="inline-block bg-white text-secondary font-bold px-10 py-4 rounded-full hover:bg-primary-light transition-all transform hover:-translate-y-1 shadow-lg shadow-white/10">
+                        <Link to="/contact" className="inline-block bg-white text-secondary font-bold px-10 py-4 rounded-full hover:bg-primary-light transition-all transform hover:-translate-y-1 shadow-lg shadow-white/10">
                             Prendre RDV
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

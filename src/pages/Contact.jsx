@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock, Send, Calendar } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <div className="bg-slate-50 min-h-screen pt-24 pb-12 relative">
+        <div className="bg-slate-50 min-h-screen pt-32 pb-12 relative">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-[500px] bg-secondary skew-y-3 origin-top-left z-0" />
 
@@ -64,7 +64,7 @@ const Contact = () => {
 
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 pl-4">Numéro de Téléphone</label>
-                                <input type="tel" className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all text-slate-800 font-medium" placeholder="+216 96 507 071" />
+                                <input type="tel" className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all text-slate-800 font-medium" placeholder="99228686" />
                             </div>
 
                             <div>
@@ -97,9 +97,9 @@ const Contact = () => {
                     >
                         {/* Info Cards - Stacked */}
                         {[
-                            { icon: Phone, title: "Appelez-nous", val: "+216 96 507 071", sub: "Lun-Ven 8h-18h", color: "bg-blue-100 text-blue-600" },
-                            { icon: Mail, title: "Email", val: "contact@dr-azaza.tn", sub: "Réponse sous 2 heures", color: "bg-emerald-100 text-emerald-600" },
-                            { icon: MapPin, title: "Visitez-nous", val: "Immeuble Safa, Sousse 4054", sub: "Av. Yasser Arafat", color: "bg-purple-100 text-purple-600" }
+                            { icon: Phone, title: "Appelez-nous", val: "99228686", sub: "Lun-Ven 8h-18h", color: "bg-blue-100 text-blue-600" },
+                            { icon: Mail, title: "Email", val: "drtesnimblel@gmail.com", sub: "Réponse sous 2 heures", color: "bg-emerald-100 text-emerald-600" },
+                            { icon: MapPin, title: "Visitez-nous", val: "Immeuble Salma 4, Sousse 4000", sub: "B17 Avenue Léopold Sédar Senghor, 1ere étage", color: "bg-purple-100 text-purple-600" }
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
